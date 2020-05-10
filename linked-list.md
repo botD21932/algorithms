@@ -27,6 +27,21 @@ https://leetcode.com/problems/reorder-list/
 
 https://leetcode.com/problems/linked-list-cycle/
 
+    def hasCycle(self, head: ListNode) -> bool:
+        if(head == None):
+            return False
+        firstWave = head
+        secondWave = head.next
+        while(secondWave != None and secondWave != firstWave):
+            secondWave = secondWave.next
+            if(secondWave == None):
+                return False
+            firstWave = firstWave.next
+            secondWave = secondWave.next
+        if(firstWave == secondWave):
+            return True
+        return False
+
 ## Linked List Cycle II
 
 https://leetcode.com/problems/linked-list-cycle-ii/
