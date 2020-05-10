@@ -47,6 +47,16 @@ https://leetcode.com/problems/palindrome-linked-list/
 
 https://leetcode.com/problems/middle-of-the-linked-list/
 
+    def middleNode(self, head: ListNode) -> ListNode:
+        firstPoint = head
+        secondPoint = head
+        while 1:
+            if (secondPoint == None or secondPoint.next == None):
+                return firstPoint
+            else:
+                firstPoint = firstPoint.next
+                secondPoint = secondPoint.next.next
+
 ## Reverse Linked List
 
 https://leetcode.com/problems/reverse-linked-list/
