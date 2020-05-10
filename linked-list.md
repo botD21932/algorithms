@@ -31,6 +31,26 @@ https://leetcode.com/problems/linked-list-cycle/
 
 https://leetcode.com/problems/linked-list-cycle-ii/
 
+    def detectCycle(self, head: ListNode) -> ListNode:
+        if(head == None):
+            return None
+        firstWave = head
+        secondWave = head.next
+        while(secondWave != None and secondWave != firstWave):
+            secondWave = secondWave.next
+            if(secondWave == None):
+                return None
+            firstWave = firstWave.next
+            secondWave = secondWave.next
+        if(firstWave == secondWave):
+            current = head
+            secondWave = secondWave.next
+            while(current!=secondWave):
+                current = current.next
+                secondWave = secondWave.next
+            return current
+        return None
+
 ## Remove Nth Node From End of List
 
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
