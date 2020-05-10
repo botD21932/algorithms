@@ -50,3 +50,13 @@ https://leetcode.com/problems/middle-of-the-linked-list/
 ## Reverse Linked List
 
 https://leetcode.com/problems/reverse-linked-list/
+
+    def reverseList(self, head: ListNode) -> ListNode:
+        previous = None
+        current = head
+        while (current != None):
+            nextTemp = current.next
+            current.next = previous
+            previous = current
+            current = nextTemp
+        return previous
