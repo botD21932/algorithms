@@ -15,6 +15,34 @@
 
 https://leetcode.com/problems/sort-list/
 
+    def sortList(self, head: ListNode) -> ListNode:
+        if(head == None or head.next == None):
+            return head
+        slowWave = head
+        fastWave = head
+        while(fastWave.next != None and fastWave.next.next != None):
+            slowWave = slowWave.next
+            fastWave = fastWave.next.next
+        rightList = self.sortList(slowWave.next)
+        slowWave.next = None
+        leftList = self.sortList(head)
+        result = ListNode(None)
+        previous = result
+        while(leftList != None and rightList != None):
+            if leftList.val < rightList.val:
+                previous.next = leftList
+                previous = leftList
+                leftList = leftList.next
+            else:
+                previous.next = rightList
+                previous = rightList
+                rightList = rightList.next
+        if(leftList != None):
+            previous.next = leftList
+        elif(rightList != None):
+            previous.next = rightList
+        return result.next
+
 ## Intersection of Two Linked Lists
 
 https://leetcode.com/problems/intersection-of-two-linked-lists/
