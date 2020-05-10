@@ -43,6 +43,16 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 https://leetcode.com/problems/palindrome-linked-list/
 
+    def isPalindrome(self, head: ListNode) -> bool:
+        list = []
+        while (head != None):
+            list.append(head.val)
+            head = head.next
+        for i in range(0, int(len(list)/2)):
+            if (list[i] != list[len(list) - i - 1]):
+                return False
+        return True
+
 ## Middle of the Linked List
 
 https://leetcode.com/problems/middle-of-the-linked-list/
