@@ -36,6 +36,20 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 https://leetcode.com/problems/path-sum/
 
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if(root == None):
+            return False
+        elif(root.left == None and root.right == None and sum - root.val == 0):
+            return True
+        elif(root.left == None and root.right == None and sum - root.val != 0):
+            return False
+        else:
+            leftSum = self.hasPathSum(root.left, sum - root.val)
+            rightSum = self.hasPathSum(root.right, sum - root.val)
+            if(leftSum or rightSum):
+                return True
+            return False
+
 ## Invert Binary Tree
 
 https://leetcode.com/problems/invert-binary-tree/
