@@ -20,6 +20,21 @@ https://leetcode.com/problems/binary-search-tree-iterator/
 
 https://leetcode.com/problems/validate-binary-search-tree/
 
+    def isValidBST(self, root: TreeNode) -> bool:
+        if(root == None):
+            return True
+        stack = [(root, float('-inf'), float('inf'))]
+        while(stack != []):
+            root, lower, upper = stack.pop()
+            if(root == None):
+                continue
+            value = root.val
+            if(value <= lower or value >= upper):
+                return False
+            stack.append((root.right, value, upper))
+            stack.append((root.left, lower, value))
+        return True
+
 ## Kth Smallest Element in a BST
 
 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
