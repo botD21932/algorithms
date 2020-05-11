@@ -28,6 +28,15 @@ https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
 https://leetcode.com/problems/subtree-of-another-tree/
 
+    def equalTrees(self, s: TreeNode, t: TreeNode) -> bool:
+        if(s == None and t == None):
+            return True
+        if(s == None or t == None):
+            return False
+        return (s.val == t.val and self.equalTrees(s.left,t.left) and self.equalTrees(s.right,t.right))
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        return (s != None and (self.equalTrees(s,t) or self.isSubtree(s.left,t) or self.isSubtree(s.right,t)))
+
 ## Binary Tree Level Order Traversal
 
 https://leetcode.com/problems/binary-tree-level-order-traversal/
