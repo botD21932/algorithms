@@ -52,6 +52,18 @@ https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
 https://leetcode.com/problems/symmetric-tree/
 
+    def isMirror(self, root1: TreeNode, root2: TreeNode) -> bool:
+        if(root1 == None and root2 == None):
+            return True
+        if(root1 == None or root2 == None):
+            return False
+        if(root1.val == root2.val and self.isMirror(root1.right, root2.left) and self.isMirror(root1.left, root2.right)):
+            return True
+        else:
+            return False
+    def isSymmetric(self, root: TreeNode) -> bool:
+        return self.isMirror(root,root)
+
 ## Binary Tree Inorder Traversal
 
 https://leetcode.com/problems/binary-tree-inorder-traversal/
