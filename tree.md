@@ -67,6 +67,12 @@ https://leetcode.com/problems/same-tree/
 
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
+    def maxDepth(self, root: TreeNode) -> int:
+        if(root == None):
+            return 0
+        else:
+            return (1 + max(self.maxDepth(root.left), self.maxDepth(root.right)))
+
 ## Symmetric Tree
 
 https://leetcode.com/problems/symmetric-tree/
