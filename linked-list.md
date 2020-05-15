@@ -22,12 +22,12 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         len1 = 0
         pointA= headA
-        while(pointA != None):
+        while pointA:
             pointA = pointA.next
             len1 = len1 + 1
         len2 = 0
         pointB = headB
-        while(pointB != None):
+        while pointB:
             pointB = pointB.next
             len2 = len2 + 1
         pointA = headA
@@ -38,7 +38,7 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
         if(len2<len1):
             for i in range(len1-len2):
                 pointA = pointA.next
-        while(pointA != None):
+        while pointA:
             if(pointA == pointB):
                 return pointA
             pointA = pointA.next
