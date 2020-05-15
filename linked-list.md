@@ -16,11 +16,11 @@
 https://leetcode.com/problems/sort-list/
 
     def sortList(self, head: ListNode) -> ListNode:
-        if(head == None or head.next == None):
+        if not head or not head.next:
             return head
         slowWave = head
         fastWave = head
-        while(fastWave.next != None and fastWave.next.next != None):
+        while fastWave.next and fastWave.next.next:
             slowWave = slowWave.next
             fastWave = fastWave.next.next
         rightList = self.sortList(slowWave.next)
@@ -28,7 +28,7 @@ https://leetcode.com/problems/sort-list/
         leftList = self.sortList(head)
         result = ListNode(None)
         previous = result
-        while(leftList != None and rightList != None):
+        while leftList and rightList:
             if leftList.val < rightList.val:
                 previous.next = leftList
                 previous = leftList
@@ -37,9 +37,9 @@ https://leetcode.com/problems/sort-list/
                 previous.next = rightList
                 previous = rightList
                 rightList = rightList.next
-        if(leftList != None):
+        if not leftList:
             previous.next = leftList
-        elif(rightList != None):
+        elif not rightList:
             previous.next = rightList
         return result.next
 
