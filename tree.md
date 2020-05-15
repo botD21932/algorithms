@@ -60,8 +60,8 @@ https://leetcode.com/problems/binary-tree-inorder-traversal/
         stack = []
         list = []
         currentNode = root
-        while(currentNode != None or stack != []):
-            while(currentNode != None):
+        while not currentNode or not stack:
+            while currentNode:
                 stack.append(currentNode)
                 currentNode = currentNode.left
             currentNode = stack.pop()
