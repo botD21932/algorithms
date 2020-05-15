@@ -21,12 +21,12 @@ https://leetcode.com/problems/binary-search-tree-iterator/
 https://leetcode.com/problems/validate-binary-search-tree/
 
     def isValidBST(self, root: TreeNode) -> bool:
-        if(root == None):
+        if not root:
             return True
         stack = [(root, float('-inf'), float('inf'))]
-        while(stack != []):
+        while stack:
             root, lower, upper = stack.pop()
-            if(root == None):
+            if not root:
                 continue
             value = root.val
             if(value <= lower or value >= upper):
