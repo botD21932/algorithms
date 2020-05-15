@@ -29,9 +29,9 @@ https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 https://leetcode.com/problems/subtree-of-another-tree/
 
     def equalTrees(self, s: TreeNode, t: TreeNode) -> bool:
-        if(s == None and t == None):
+        if not s and not t:
             return True
-        if(s == None or t == None):
+        if not s or not t:
             return False
         return (s.val == t.val and self.equalTrees(s.left,t.left) and self.equalTrees(s.right,t.right))
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
