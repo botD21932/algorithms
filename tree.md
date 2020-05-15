@@ -33,20 +33,20 @@ https://leetcode.com/problems/subtree-of-another-tree/
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        if(root == None):
+        if not root:
             return []
         result = []
         queue = [root]
         wave = [root]
-        while(wave != []):
+        while wave:
             queue = wave
             wave = []
             result.append([elem.val for elem in queue])
-            while(queue != []):
+            while queue:
                 node = queue.pop(0)
-                if(node.left != None):
+                if not node.left:
                     wave.append(node.left)
-                if(node.right != None):
+                if not node.right:
                     wave.append(node.right)
         return result
 
