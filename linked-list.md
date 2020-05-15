@@ -54,7 +54,7 @@ https://leetcode.com/problems/reverse-linked-list/
     def reverseList(self, head: ListNode) -> ListNode:
         previous = None
         current = head
-        while (current != None):
+        while current:
             nextTemp = current.next
             current.next = previous
             previous = current
