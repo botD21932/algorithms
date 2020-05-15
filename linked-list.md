@@ -45,7 +45,7 @@ https://leetcode.com/problems/palindrome-linked-list/
 
     def isPalindrome(self, head: ListNode) -> bool:
         list = []
-        while (head != None):
+        while head:
             list.append(head.val)
             head = head.next
         for i in range(0, int(len(list)/2)):
