@@ -51,7 +51,7 @@ https://leetcode.com/problems/middle-of-the-linked-list/
         firstPoint = head
         secondPoint = head
         while 1:
-            if (secondPoint == None or secondPoint.next == None):
+            if not secondPoint or not secondPoint.next:
                 return firstPoint
             else:
                 firstPoint = firstPoint.next
