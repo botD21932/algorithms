@@ -32,13 +32,13 @@ https://leetcode.com/problems/linked-list-cycle/
 https://leetcode.com/problems/linked-list-cycle-ii/
 
     def detectCycle(self, head: ListNode) -> ListNode:
-        if(head == None):
+        if not head:
             return None
         firstWave = head
         secondWave = head.next
-        while(secondWave != None and secondWave != firstWave):
+        while(secondWave and secondWave != firstWave):
             secondWave = secondWave.next
-            if(secondWave == None):
+            if not secondWave:
                 return None
             firstWave = firstWave.next
             secondWave = secondWave.next
