@@ -57,10 +57,7 @@ https://leetcode.com/problems/symmetric-tree/
             return True
         if(root1 == None or root2 == None):
             return False
-        if(root1.val == root2.val and self.isMirror(root1.right, root2.left) and self.isMirror(root1.left, root2.right)):
-            return True
-        else:
-            return False
+        return (root1.val == root2.val and self.isMirror(root1.right, root2.left) and self.isMirror(root1.left, root2.right))
     def isSymmetric(self, root: TreeNode) -> bool:
         return self.isMirror(root,root)
 
