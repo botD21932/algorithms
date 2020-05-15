@@ -42,7 +42,7 @@ https://leetcode.com/problems/remove-nth-node-from-end-of-list/
         secondPoint = self
         for i in range(1,n+2):
             firstPoint = firstPoint.next
-        while(firstPoint != None):
+        while firstPoint:
             firstPoint = firstPoint.next
             secondPoint = secondPoint.next
         secondPoint.next = secondPoint.next.next
