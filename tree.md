@@ -37,11 +37,11 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
 https://leetcode.com/problems/path-sum/
 
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        if(root == None):
+        if not root:
             return False
-        elif(root.left == None and root.right == None and sum - root.val == 0):
+        elif(not root.left and not root.right and sum - root.val == 0):
             return True
-        elif(root.left == None and root.right == None and sum - root.val != 0):
+        elif(not root.left and not root.right and sum - root.val != 0):
             return False
         else:
             leftSum = self.hasPathSum(root.left, sum - root.val)
