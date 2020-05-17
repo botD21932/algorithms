@@ -8,7 +8,6 @@
 
 https://leetcode.com/problems/insert-interval/
 
-'''python
   def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         intervals.append(newInterval)
         intervals = sorted(intervals, key = lambda x: x[0])
@@ -19,7 +18,6 @@ https://leetcode.com/problems/insert-interval/
             else:
                 result[-1][1] = max(result[-1][1], interval[1])
         return result
-'''
 
 ## Merge Intervals
 
