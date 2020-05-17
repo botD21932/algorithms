@@ -50,12 +50,10 @@ https://leetcode.com/problems/middle-of-the-linked-list/
     def middleNode(self, head: ListNode) -> ListNode:
         firstPoint = head
         secondPoint = head
-        while 1:
-            if not secondPoint or not secondPoint.next:
-                return firstPoint
-            else:
-                firstPoint = firstPoint.next
-                secondPoint = secondPoint.next.next
+        while secondPoint and secondPoint.next:
+            firstPoint = firstPoint.next
+            secondPoint = secondPoint.next.next
+        return firstPoint
 
 ## Reverse Linked List
 
