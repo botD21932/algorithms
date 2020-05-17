@@ -80,3 +80,16 @@ https://leetcode.com/problems/symmetric-tree/
 ## Binary Tree Inorder Traversal
 
 https://leetcode.com/problems/binary-tree-inorder-traversal/
+
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        stack = []
+        list = []
+        currentNode = root
+        while not currentNode or not stack:
+            while currentNode:
+                stack.append(currentNode)
+                currentNode = currentNode.left
+            currentNode = stack.pop()
+            list.append(currentNode.val)
+            currentNode = currentNode.right
+        return list
