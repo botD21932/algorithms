@@ -30,15 +30,15 @@ https://leetcode.com/problems/linked-list-cycle/
     def hasCycle(self, head: ListNode) -> bool:
         if not head:
             return False
-        firstWave = head
-        secondWave = head.next
-        while(not secondWave and secondWave != firstWave):
-            secondWave = secondWave.next
-            if not secondWave:
+        slowPointer = head
+        fastPointer = head.next
+        while fastPointer and fastPointer != slowPointer:
+            fastPointer = fastPointer.next
+            if not fastPointer:
                 return False
-            firstWave = firstWave.next
-            secondWave = secondWave.next
-        if(firstWave == secondWave):
+            slowPointer = slowPointer.next
+            fastPointer = fastPointer.next
+        if slowPointer == fastPointer:
             return True
         return False
 
