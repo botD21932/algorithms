@@ -44,11 +44,7 @@ https://leetcode.com/problems/path-sum/
         elif(not root.left and not root.right and sum - root.val != 0):
             return False
         else:
-            leftSum = self.hasPathSum(root.left, sum - root.val)
-            rightSum = self.hasPathSum(root.right, sum - root.val)
-            if(leftSum or rightSum):
-                return True
-            return False
+            return self.hasPathSum(root.right, sum - root.val) or self.hasPathSum(root.left, sum - root.val)
 
 ## Invert Binary Tree
 
