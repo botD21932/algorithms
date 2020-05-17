@@ -34,20 +34,20 @@ https://leetcode.com/problems/linked-list-cycle-ii/
     def detectCycle(self, head: ListNode) -> ListNode:
         if not head:
             return None
-        firstWave = head
-        secondWave = head.next
-        while(secondWave and secondWave != firstWave):
-            secondWave = secondWave.next
-            if not secondWave:
+        slowPointer = head
+        fastPointer = head.next
+        while(fastPointer and fastPointer != slowPointer):
+            fastPointer = fastPointer.next
+            if not fastPointer:
                 return None
-            firstWave = firstWave.next
-            secondWave = secondWave.next
-        if(firstWave == secondWave):
+            slowPointer = slowPointer.next
+            fastPointer = fastPointer.next
+        if(slowPointer == fastPointer):
             current = head
-            secondWave = secondWave.next
-            while(current!=secondWave):
+            fastPointer = fastPointer.next
+            while(current!=fastPointer):
                 current = current.next
-                secondWave = secondWave.next
+                fastPointer = fastPointer.next
             return current
         return None
 
