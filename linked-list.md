@@ -43,22 +43,19 @@ https://leetcode.com/problems/merge-two-sorted-lists/
         head = ListNode(0)
         pointer = head
         while l1 or l2:
-            if not l1:
-                pointer.next = l2
-                break
-            elif not l2:
-                pointer.next = l1
-                break
+            if l1.val < l2.val:
+                value = l1.val
+                l1 = l1.next
             else:
-                if l1.val < l2.val:
-                    value = l1.val
-                    l1 = l1.next
-                else:
-                    value = l2.val
-                    l2 = l2.next
-                newNode = ListNode(value)
-                pointer.next = newNode
-                pointer = pointer.next
+                value = l2.val
+                l2 = l2.next
+            newNode = ListNode(value)
+            pointer.next = newNode
+            pointer = pointer.next
+        if not l1:
+            pointer.next = l2
+        elif not l2:
+            pointer.next = l1
         return head.next
 
 ## Palindrome Linked List
