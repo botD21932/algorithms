@@ -39,6 +39,18 @@ https://leetcode.com/problems/validate-binary-search-tree/
 
 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
+        stack = []
+        while k>=0:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            k = k - 1
+            if(k == 0):
+                return root.val
+            root = root.right
+
 ## Subtree of Another Tree
 
 https://leetcode.com/problems/subtree-of-another-tree/
