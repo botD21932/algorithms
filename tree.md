@@ -37,17 +37,17 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
             return []
         result = []
         queue = [root]
-        wave = [root]
+        level = [root]
         while wave:
-            queue = wave
-            wave = []
+            queue = level
+            level = []
             result.append([elem.val for elem in queue])
             while queue:
                 node = queue.pop(0)
                 if not node.left:
-                    wave.append(node.left)
+                    level.append(node.left)
                 if not node.right:
-                    wave.append(node.right)
+                    level.append(node.right)
         return result
 
 ## Path Sum
