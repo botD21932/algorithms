@@ -40,16 +40,26 @@ https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 https://leetcode.com/problems/merge-two-sorted-lists/
 
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        if not l1:
-            return l2
-        if not l2:
-            return l1
-        if(l1.val <= l2.val):
-            l1.next = self.mergeTwoLists(l1.next,l2)
-            return l1
-        else:
-            l2.next = self.mergeTwoLists(l1,l2.next)
-            return l2
+        head = ListNode(0)
+        pointer = head
+        while l1 or l2:
+            if not l1:
+                pointer.next = l2
+                break
+            elif not l2:
+                pointer.next = l1
+                break
+            else:
+                if l1.val < l2.val:
+                    value = l1.val
+                    l1 = l1.next
+                else:
+                    value = l2.val
+                    l2 = l2.next
+                newNode = ListNode(value)
+                pointer.next = newNode
+                pointer = pointer.next
+        return head.next
 
 ## Palindrome Linked List
 
