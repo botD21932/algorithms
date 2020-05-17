@@ -44,13 +44,11 @@ https://leetcode.com/problems/merge-two-sorted-lists/
         pointer = head
         while l1 or l2:
             if l1.val < l2.val:
-                value = l1.val
+                pointer.next = l1
                 l1 = l1.next
             else:
-                value = l2.val
+                pointer.next = l2
                 l2 = l2.next
-            newNode = ListNode(value)
-            pointer.next = newNode
             pointer = pointer.next
         if not l1:
             pointer.next = l2
