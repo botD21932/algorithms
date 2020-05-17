@@ -19,6 +19,20 @@ https://leetcode.com/problems/sort-list/
 
 https://leetcode.com/problems/intersection-of-two-linked-lists/
 
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        pointA = headA
+        pointB = headB
+        while(pointA != pointB):
+            if not pointA:
+                pointA = headB
+            else:
+                pointA = pointA.next
+            if not pointB:
+                pointB = headA
+            else:
+                pointB = pointB.next
+        return pointA
+
 ## Reorder List
 
 https://leetcode.com/problems/reorder-list/
