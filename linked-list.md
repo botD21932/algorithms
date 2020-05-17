@@ -44,13 +44,22 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 https://leetcode.com/problems/palindrome-linked-list/
 
     def isPalindrome(self, head: ListNode) -> bool:
-        list = []
-        while head:
-            list.append(head.val)
-            head = head.next
-        for i in range(0, int(len(list)/2)):
-            if (list[i] != list[len(list) - i - 1]):
+        half = []
+        firstWave = head
+        secondWave = head
+        if not head or not head.next:
+            return True
+        while secondWave and secondWave.next:
+            half.append(firstWave.val)
+            firstWave = firstWave.next
+            secondWave = secondWave.next.next
+        if secondWave:
+            firstWave= firstWave.next
+        while firstWave:
+            if(half.pop() != firstWave.val):
                 return False
+            else:
+                firstWave = firstWave.next
         return True
 
 ## Middle of the Linked List
