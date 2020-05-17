@@ -36,17 +36,17 @@ https://leetcode.com/problems/linked-list-cycle-ii/
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        self.__init__()
-        self.next = head
-        firstPoint = self
-        secondPoint = self
+        start = ListNode(0)
+        start.next = head
+        firstPoint = start
+        secondPoint = start
         for i in range(1,n+2):
             firstPoint = firstPoint.next
         while firstPoint:
             firstPoint = firstPoint.next
             secondPoint = secondPoint.next
         secondPoint.next = secondPoint.next.next
-        return self.next
+        return start.next
 
 ## Merge Two Sorted Lists
 
