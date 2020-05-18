@@ -38,7 +38,7 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
         result = []
         queue = [root]
         level = [root]
-        while wave:
+        while level:
             queue = level
             level = []
             result.append([elem.val for elem in queue])
