@@ -60,6 +60,26 @@ https://leetcode.com/problems/linked-list-cycle/
 
 https://leetcode.com/problems/linked-list-cycle-ii/
 
+    def detectCycle(self, head: ListNode) -> ListNode:
+        if not head:
+            return None
+        slowPointer = head
+        fastPointer = head.next
+        while(fastPointer and fastPointer != slowPointer):
+            fastPointer = fastPointer.next
+            if not fastPointer:
+                return None
+            slowPointer = slowPointer.next
+            fastPointer = fastPointer.next
+        if(slowPointer == fastPointer):
+            current = head
+            fastPointer = fastPointer.next
+            while(current!=fastPointer):
+                current = current.next
+                fastPointer = fastPointer.next
+            return current
+        return None
+
 ## Remove Nth Node From End of List
 
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
