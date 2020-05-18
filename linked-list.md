@@ -42,7 +42,7 @@ https://leetcode.com/problems/merge-two-sorted-lists/
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         head = ListNode(0)
         pointer = head
-        while l1 or l2:
+        while l1 and l2:
             if l1.val < l2.val:
                 pointer.next = l1
                 l1 = l1.next
