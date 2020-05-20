@@ -16,11 +16,12 @@ https://leetcode.com/problems/3sum/
 
 https://leetcode.com/problems/two-sum/
 
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        numsdict = {}
-        for i, elem in enumerate(nums):
-            n = target - elem
-            if n not in numsdict:
-                numsdict[elem] = i
-            else:
-                return[numsdict[n],i]
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    numsdict = {}
+    for i, elem in enumerate(nums):
+        n = target - elem
+        if n not in numsdict:
+            numsdict[elem] = i
+        else:
+            return[numsdict[n], i]
+
