@@ -32,7 +32,7 @@ https://leetcode.com/problems/subtree-of-another-tree/
 
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-'''python
+```python
 def levelOrder(self, root: TreeNode) -> List[List[int]]:
     if not root:
         return []
@@ -51,7 +51,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
                 level.append(node.right)
     return result
 
-'''
+```
 
 ## Path Sum
 
