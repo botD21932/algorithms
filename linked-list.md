@@ -43,26 +43,27 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 https://leetcode.com/problems/palindrome-linked-list/
 
-    def isPalindrome(self, head: ListNode) -> bool:
-        slowPointer = head
-        fastPointer = head
-        previous = None
-        if not head or not head.next:
-            return True
-        while fastPointer and fastPointer.next:
-            fastPointer = fastPointer.next.next
-            nextTemp = slowPointer.next
-            slowPointer.next = previous
-            previous = slowPointer
-            slowPointer = nextTemp
-        if fastPointer:
-            slowPointer = slowPointer.next
-        while slowPointer:
-            if(slowPointer.val != previous.val):
-                return False
-            slowPointer = slowPointer.next
-            previous = previous.next
+def isPalindrome(self, head: ListNode) -> bool:
+    slowPointer = head
+    fastPointer = head
+    previous = None
+    if not head or not head.next:
         return True
+    while fastPointer and fastPointer.next:
+        fastPointer = fastPointer.next.next
+        nextTemp = slowPointer.next
+        slowPointer.next = previous
+        previous = slowPointer
+        slowPointer = nextTemp
+    if fastPointer:
+        slowPointer = slowPointer.next
+    while slowPointer:
+        if(slowPointer.val != previous.val):
+            return False
+        slowPointer = slowPointer.next
+        previous = previous.next
+    return True
+
 
 ## Middle of the Linked List
 
