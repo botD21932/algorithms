@@ -37,6 +37,29 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 https://leetcode.com/problems/reorder-list/
 
+```python
+def reorderList(self, head: ListNode) -> None:
+    if not head:
+        return head
+    nodeList = []
+    currentNode = head
+    begin = 0
+    end = -1
+    while currentNode:
+        nodeList.append(currentNode)
+        currentNode = currentNode.next
+        end = end + 1
+    while begin < end:
+        nodeList[begin].next = nodeList[end]
+        begin = begin + 1
+        if begin >= end:
+            break
+        nodeList[end].next = nodeList[begin]
+        end = end - 1
+    nodeList[end].next = None
+
+```
+
 ## Linked List Cycle
 
 https://leetcode.com/problems/linked-list-cycle/
