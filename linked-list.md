@@ -39,6 +39,7 @@ https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 https://leetcode.com/problems/merge-two-sorted-lists/
 
+```python
 def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
     head = ListNode(0)
     pointer = head
@@ -56,6 +57,7 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         pointer.next = l1
     return head.next
 
+```
 
 ## Palindrome Linked List
 
