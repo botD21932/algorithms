@@ -12,6 +12,7 @@ https://leetcode.com/problems/subarray-sum-equals-k/
 
 https://leetcode.com/problems/3sum/
 
+```python
 def threeSum(self, nums: List[int]) -> List[List[int]]:
     nums.sort()
     result = []
@@ -36,6 +37,7 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
                 third = third - 1
     return result
     
+```
 
 ## Two Sum
 
