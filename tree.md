@@ -68,6 +68,8 @@ def equalTrees(self, s: TreeNode, t: TreeNode) -> bool:
     if not s or not t:
         return False
     return (s.val == t.val and self.equalTrees(s.left, t.left) and self.equalTrees(s.right, t.right))
+
+
 def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
     return (s and (self.equalTrees(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t)))
 
@@ -106,9 +108,9 @@ https://leetcode.com/problems/path-sum/
 def hasPathSum(self, root: TreeNode, sum: int) -> bool:
     if not root:
         return False
-    elif(not root.left and not root.right and sum - root.val == 0):
+    elif not root.left and not root.right and sum - root.val == 0:
         return True
-    elif(not root.left and not root.right and sum - root.val != 0):
+    elif not root.left and not root.right and sum - root.val != 0:
         return False
     else:
         return self.hasPathSum(root.right, sum - root.val) or self.hasPathSum(root.left, sum - root.val)
@@ -141,10 +143,10 @@ def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
         return True
     elif not p or not q:
         return False
-    elif(p.val != q.val):
+    elif p.val != q.val:
         return False
     else:
-        return (self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right))
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 ```
 
@@ -157,7 +159,7 @@ def maxDepth(self, root: TreeNode) -> int:
     if not root:
         return 0
     else:
-        return (1 + max(self.maxDepth(root.left), self.maxDepth(root.right)))
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 ```
 
