@@ -16,10 +16,11 @@ https://leetcode.com/problems/merge-intervals/
 
 https://leetcode.com/problems/non-overlapping-intervals
 
+```python
 def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
     if not intervals:
         return 0
-    intervals.sort(key=lambda x: x[0])
+    intervals.sort(key=lambda x: x[1])
     end = (intervals[0])[1]
     min = 0
     for elem in intervals[1::]:
@@ -30,3 +31,5 @@ def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         else:
             end = elem[1]
     return min
+    
+ ```
