@@ -53,7 +53,7 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         pointer = pointer.next
     if not l1:
         pointer.next = l2
-    elif not l2:
+    if not l2:
         pointer.next = l1
     return head.next
 
