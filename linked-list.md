@@ -58,6 +58,31 @@ def reorderList(self, head: ListNode) -> None:
         end = end - 1
     nodeList[end].next = None
 
+
+def reorderList(self, head: ListNode) -> None:
+    if not head:
+        return head
+    fastPoint = head
+    slowPoint = head
+    while fastPoint and fastPoint.next:
+        slowPoint = slowPoint.next
+        fastPoint = fastPoint.next.next
+    tail = slowPoint
+    previous = None
+    half = slowPoint.next
+    while half:
+        slowPoint.next = previous
+        previous = slowPoint
+        slowPoint = half
+        half = half.next
+    slowPoint.next = previous
+    current = None
+    while current != tail:
+        current = head.next
+        head.next = slowPoint
+        head = slowPoint
+        slowPoint = current
+
 ```
 
 ## Linked List Cycle
