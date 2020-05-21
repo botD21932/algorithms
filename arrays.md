@@ -8,6 +8,7 @@
 
 https://leetcode.com/problems/subarray-sum-equals-k/
 
+```python
 def subarraySum(self, nums: List[int], k: int) -> int:
     count = 0
     sum = 0
@@ -19,6 +20,7 @@ def subarraySum(self, nums: List[int], k: int) -> int:
         d.update({sum: d.setdefault(sum, 0) + 1})
     return count
 
+```
 
 ## 3Sum
 
