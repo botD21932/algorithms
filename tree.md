@@ -16,6 +16,32 @@
 
 https://leetcode.com/problems/binary-search-tree-iterator/
 
+```python
+class BSTIterator:
+
+    def __init__(self, root: TreeNode):
+        self.stack = []
+        self.addLeft(root)
+
+
+    def addLeft(self, root):
+        while root:
+            self.stack.append(root)
+            root = root.left
+
+
+    def next(self) -> int:
+        topNode = self.stack.pop()
+        if topNode.right:
+            self.addLeft(topNode.right)
+        return topNode.val
+
+
+    def hasNext(self) -> bool:
+        return len(self.stack) > 0
+
+```
+
 ## Validate Binary Search Tree
 
 https://leetcode.com/problems/validate-binary-search-tree/
