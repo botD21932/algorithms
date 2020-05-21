@@ -111,16 +111,16 @@ def detectCycle(self, head: ListNode) -> ListNode:
         return None
     slowPointer = head
     fastPointer = head.next
-    while(fastPointer and fastPointer != slowPointer):
+    while fastPointer and fastPointer != slowPointer:
         fastPointer = fastPointer.next
         if not fastPointer:
             return None
         slowPointer = slowPointer.next
         fastPointer = fastPointer.next
-    if(slowPointer == fastPointer):
+    if slowPointer == fastPointer:
         current = head
         fastPointer = fastPointer.next
-        while(current != fastPointer):
+        while current != fastPointer:
             current = current.next
             fastPointer = fastPointer.next
         return current
