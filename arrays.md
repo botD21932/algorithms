@@ -1,8 +1,8 @@
 # Arrays
 
-+[Subarray Sum Equals K](#subarray-sum-equals-k)
-+[3Sum](#3sum)
-+[Two Sum](#two-sum)
++ [Subarray Sum Equals K](#subarray-sum-equals-k)
++ [3Sum](#3sum)
++ [Two Sum](#two-sum)
 
 ## Subarray Sum Equals K
 
