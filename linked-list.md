@@ -15,33 +15,44 @@
 
 https://leetcode.com/problems/sort-list/
 
-    def sortList(self, head: ListNode) -> ListNode:
-        if not head or not head.next:
-            return head
-        slowWave = head
-        fastWave = head
-        while fastWave.next and fastWave.next.next:
-            slowWave = slowWave.next
-            fastWave = fastWave.next.next
-        rightList = self.sortList(slowWave.next)
-        slowWave.next = None
-        leftList = self.sortList(head)
-        result = ListNode(None)
-        previous = result
-        while leftList and rightList:
-            if leftList.val < rightList.val:
-                previous.next = leftList
-                previous = leftList
-                leftList = leftList.next
-            else:
-                previous.next = rightList
-                previous = rightList
-                rightList = rightList.next
-        if not leftList:
-            previous.next = leftList
-        elif not rightList:
-            previous.next = rightList
-        return result.next
+```python
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    head = ListNode(0)
+    pointer = head
+    while l1 and l2:
+        if l1.val < l2.val:
+            pointer.next = l1
+            l1 = l1.next
+        else:
+            pointer.next = l2
+            l2 = l2.next
+        pointer = pointer.next
+    if not l1:
+        pointer.next = l2
+    elif not l2:
+        pointer.next = l1
+    return head.next
+
+
+def middleNode(self, head: ListNode) -> ListNode:
+    firstPoint = head
+    secondPoint = head
+    while secondPoint.next and secondPoint.next.next:
+        firstPoint = firstPoint.next
+        secondPoint = secondPoint.next.next
+    return firstPoint
+
+
+def sortList(self, head: ListNode) -> ListNode:
+    if not head or not head.next:
+        return head
+    middle = self.middleNode(head)
+    rightList = self.sortList(middle.next)
+    middle.next = None
+    leftList = self.sortList(head)
+    return self.mergeTwoLists(leftList, rightList)
+
+```
 
 ## Intersection of Two Linked Lists
 
