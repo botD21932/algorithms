@@ -25,8 +25,6 @@ def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
     min = 0
     for elem in intervals[1::]:
         if(elem[0] < end):
-            if(elem[1] < end):
-                end = elem[1]
             min = min + 1
         else:
             end = elem[1]
