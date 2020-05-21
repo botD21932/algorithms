@@ -42,3 +42,19 @@ def merge(self, intervals: List[List[int]]) -> List[List[int]]:
 ## Non-overlapping Intervals
 
 https://leetcode.com/problems/non-overlapping-intervals
+
+```python
+def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+    if not intervals:
+        return 0
+    intervals.sort(key=lambda x: x[1])
+    end = (intervals[0])[1]
+    min = 0
+    for elem in intervals[1::]:
+        if elem[0] < end:
+            min = min + 1
+        else:
+            end = elem[1]
+    return min
+    
+ ```
