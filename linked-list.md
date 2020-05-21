@@ -43,27 +43,44 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 https://leetcode.com/problems/palindrome-linked-list/
 
-def isPalindrome(self, head: ListNode) -> bool:
-    slowPointer = head
-    fastPointer = head
+```python
+def reverseList(self, head: ListNode) -> ListNode:
     previous = None
-    if not head or not head.next:
-        return True
-    while fastPointer and fastPointer.next:
-        fastPointer = fastPointer.next.next
-        nextTemp = slowPointer.next
-        slowPointer.next = previous
-        previous = slowPointer
-        slowPointer = nextTemp
-    if fastPointer:
-        slowPointer = slowPointer.next
-    while slowPointer:
-        if(slowPointer.val != previous.val):
+    current = head
+    while current:
+        nextTemp = current.next
+        current.next = previous
+        previous = current
+        current = nextTemp
+    return previous
+
+
+def isEqual(self, firstHalf: ListNode, secondHalf: ListNode) -> bool:
+    while secondHalf:
+        if secondHalf.val != firstHalf.val:
             return False
-        slowPointer = slowPointer.next
-        previous = previous.next
+        secondHalf = secondHalf.next
+        firstHalf = firstHalf.next
     return True
 
+
+def isPalindrome(self, head: ListNode) -> bool:
+    if not head or not head.next:
+        return True
+    firstPoint = head
+    secondPoint = head
+    while secondPoint.next and secondPoint.next.next:
+        firstPoint = firstPoint.next
+        secondPoint = secondPoint.next.next
+    if not secondPoint.next:
+        secondHalf = copy.copy(firstPoint)
+    else:
+        secondHalf = copy.copy(firstPoint.next)
+    firstPoint.next = None
+    firstHalf = self.reverseList(head)
+    return self.isEqual(firstHalf, secondHalf)
+
+```
 
 ## Middle of the Linked List
 
